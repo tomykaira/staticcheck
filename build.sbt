@@ -20,5 +20,6 @@ lazy val root = (project in file(".")).dependsOn(myWarts).settings(
   wartremoverWarnings += Wart.custom("mywarts.CaseClassParametersCoverage"),
   wartremoverClasspaths ++= {
     (fullClasspath in (myWarts, Compile)).value.map(_.data.toURI.toString)
-  } 
+  },
+  wartremoverWarnings ++= Warts.unsafe
 )
